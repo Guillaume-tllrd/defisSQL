@@ -2,7 +2,7 @@
 require_once("./src/connect.php");
 
 // Requête SQL pour récupérer le nombre de personnes pour chaque genre
-$sql = "";
+$sql = "SELECT gender, COUNT(*) AS SEXE FROM users GROUP BY gender";
 
 
 // Préparation de la requête
@@ -29,7 +29,7 @@ require_once("./src/close.php");
         <?php
             foreach ($result as $user) {
                 // faire un echo du nombre de personnes pour chaque genre
-
+                echo $user['gender'] . ": " . $user['SEXE']. "<br>";
             }
         ?>
     </div>

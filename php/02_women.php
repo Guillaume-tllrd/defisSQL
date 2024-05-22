@@ -2,7 +2,7 @@
 require_once("./src/connect.php");
 
 // Requête SQL pour récupérer les prénoms et noms de toutes les femmes
-$sql = "";
+$sql = "SELECT * FROM users WHERE gender='female'";
 
 
 // Préparation de la requête
@@ -31,7 +31,7 @@ require_once("./src/close.php");
         <?php
             foreach ($result as $user) {
                 // faire un écho du prénom et du nom de famille des utilisatrice
-
+                echo $user["last_name"] . " " .$user['first_name']. " ". "est une female" ."<br>";
             }
         ?>
     </div>

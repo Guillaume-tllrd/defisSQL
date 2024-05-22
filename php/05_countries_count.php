@@ -2,7 +2,7 @@
 require_once("./src/connect.php");
 
 // Requête SQL pour récupérer tous les pays, en un seul exemplaire, et le nombre d'utilisateurs par pays
-$sql = "";
+$sql = "SELECT country, COUNT(*) FROM users GROUP BY country";
 
 
 // Préparation de la requête
@@ -29,7 +29,7 @@ require_once("./src/close.php");
         <?php
             foreach ($result as $country) {
                 // faire un echo de chaque pays trouvé avec le nombre d'utilisateurs correspondant
-                
+                echo $country['country']. " " .$country['COUNT(*)']. "<br>";
             }
         ?>
     </div>

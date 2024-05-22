@@ -2,7 +2,7 @@
 require_once("./src/connect.php");
 
 // Requête SQL pour récupérer tous les utilisateurs dont le nom est Palmer (prénom, nom de famille)
-$sql = "";
+$sql = "SELECT * FROM users WHERE last_name ='Palmer'";
 
 
 // Préparation de la requête
@@ -29,7 +29,8 @@ require_once("./src/close.php");
         <?php
             foreach ($result as $user) {
                 // faire un echo du prénom et du nom de famille de chaque utilisateur trouvé
-                
+                echo $user["last_name"] . " " .$user['first_name'] . "<br>";
+
             }
         ?>
     </div>

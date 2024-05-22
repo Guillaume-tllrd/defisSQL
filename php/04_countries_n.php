@@ -2,7 +2,7 @@
 require_once("./src/connect.php");
 
 // Requête SQL pour récupérer tous les pays dont le nom commence par la lettre 'N'
-$sql = "";
+$sql = "SELECT * FROM users WHERE country LIKE 'n%'";
 
 
 // Préparation de la requête
@@ -29,7 +29,7 @@ require_once("./src/close.php");
         <?php
             foreach ($result as $country) {
                 // faire un echo des pays trouvés
-                
+            echo $country['country']. "<br>";
             }
         ?>
     </div>
