@@ -1,15 +1,20 @@
 <?php
 require_once("./src/connect.php");
+//le require laisse une erreur fatale sur la page si jamais il y a une erreur et on ne peut pas aller plus loin contrairement au include.
+
 
 $sql = "SELECT * FROM `users` ORDER BY `id` DESC;";
 
 
 // Préparation de la requête
 $query = $db->prepare($sql);
-// Exécution de la requête
-$query->execute();
+
 // Stockage du résultat dans un tableau associatif [personne1, personne2, ...]
 $users = $query->fetchAll(PDO::FETCH_ASSOC);
+// en faisant FETCH_ASSOC je vais me retrouver uniquement avec les noms de colonnes pour les tableaux. oN a un tbleau associatif. Onne peut pas déclarer 2 fois require.
+
+// Exécution de la requête
+$query->execute();
 
 require_once("./src/close.php");
 ?>
